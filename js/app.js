@@ -1,6 +1,7 @@
 'use strict';
 
 /*Global variables and functions*/
+const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 /*SEATTLE location ///////////////////////////////////////////////////////////*/
 let store = {
@@ -47,7 +48,7 @@ let store = {
             //Adds to my total variable to display the total
             this.total += myCookies;
             //Creates and appends the <li> elements
-            listItems.textContent = myCookies;
+            listItems.textContent = hours[i] + ': ' + myCookies + ' cookies';
             unLi.appendChild(listItems);
 
             //Pushes the daily average to the hourlyArr
@@ -58,7 +59,7 @@ let store = {
 
         const totalLi = document.createElement('li');
         unLi.appendChild(totalLi);
-        totalLi.textContent = 'Total ' + Math.floor(this.total);
+        totalLi.textContent = 'Total ' + Math.floor(this.total) + ' cookies';
     },
 
     //My arrays for data display
@@ -126,7 +127,7 @@ let tokyoStore = {
             //Adds to my total variable to display the total
             this.total += myCookies;
             //Creates and appends the <li> elements
-            listItems.textContent = myCookies;
+            listItems.textContent = hours[i] + ': ' + myCookies + ' cookies';
             unLi.appendChild(listItems);
 
             //Pushes the daily average to the hourlyArr
@@ -137,7 +138,7 @@ let tokyoStore = {
 
         const totalLi = document.createElement('li');
         unLi.appendChild(totalLi);
-        totalLi.textContent = 'Total ' + Math.floor(this.total);
+        totalLi.textContent = 'Total ' + Math.floor(this.total) + ' cookies';
     },
 
     //My arrays for data display
@@ -191,7 +192,7 @@ let dubaiStore = {
             //Adds to my total variable to display the total
             this.total += myCookies;
             //Creates and appends the <li> elements
-            listItems.textContent = myCookies;
+            listItems.textContent = hours[i] + ': ' + myCookies + ' cookies';
             unLi.appendChild(listItems);
 
             //Pushes the daily average to the hourlyArr
@@ -202,7 +203,7 @@ let dubaiStore = {
 
         const totalLi = document.createElement('li');
         unLi.appendChild(totalLi);
-        totalLi.textContent = 'Total ' + Math.floor(this.total);
+        totalLi.textContent = 'Total ' + Math.floor(this.total) + ' cookies';
     },
 
     //My arrays for data display
@@ -255,7 +256,7 @@ let parisStore = {
             //Adds to my total variable to display the total
             this.total += myCookies;
             //Creates and appends the <li> elements
-            listItems.textContent = myCookies;
+            listItems.textContent = hours[i] + ': ' + myCookies + ' cookies';
             unLi.appendChild(listItems);
 
             //Pushes the daily average to the hourlyArr
@@ -266,7 +267,7 @@ let parisStore = {
 
         const totalLi = document.createElement('li');
         unLi.appendChild(totalLi);
-        totalLi.textContent = 'Total ' + Math.floor(this.total);
+        totalLi.textContent = 'Total ' + Math.floor(this.total) + ' cookies';
     },
 
     //My arrays for data display
@@ -319,7 +320,7 @@ let limaStore = {
             //Adds to my total variable to display the total
             this.total += myCookies;
             //Creates and appends the <li> elements
-            listItems.textContent = myCookies;
+            listItems.textContent = hours[i] + ': ' + myCookies + ' cookies';
             unLi.appendChild(listItems);
 
             //Pushes the daily average to the hourlyArr
@@ -330,7 +331,7 @@ let limaStore = {
 
         const totalLi = document.createElement('li');
         unLi.appendChild(totalLi);
-        totalLi.textContent = 'Total ' + Math.floor(this.total);
+        totalLi.textContent = 'Total ' + Math.floor(this.total) + ' cookies';
     },
 
     //My arrays for data display
