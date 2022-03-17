@@ -8,8 +8,8 @@ let grandTotal = [];
 
 /*Constainer for my list items*/
 let body = document.getElementById('body');
-const section = document.createElement('section');
-body.appendChild(section);
+// const section = document.getElementById('section');
+const tableBody = document.getElementById('tableBody');
 
 /*Object literals converted via constructor fx/////////////////////////////////////////////////*/
 function Store(location, custMin, custMax, average) {
@@ -33,15 +33,15 @@ let limaStore = new Store('Lima', 2, 16, 4.6);
 //************Calculates the hourly number of cookies
 Store.prototype.cookieCalc = function () {
     for (let i = 0; i < hours.length; i++) {
-        let calc = Math.floor(this.average * Math.floor(Math.random() * (this.custMax - this.custMin + 1) + this.custMin));
+        let calc = Math.floor(this.average * (Math.floor(Math.random() * (this.custMax - this.custMin + 1) + this.custMin)));
         this.cookieArray.push(calc);
         this.total += calc;
     }
 }
 
 /* HTML construction zone ///////////////////////////////////////////////////////////////////////*/
-const table = document.createElement('table');  //Table beginning
-section.appendChild(table);
+// const table = document.createElement('table');  //Table beginning
+// section.appendChild(table);
 
 const tableHead = document.createElement('thead'); //Table head
 table.appendChild(tableHead);
@@ -49,8 +49,8 @@ table.appendChild(tableHead);
 const blank = document.createElement('td'); //Blank
 tableHead.appendChild(blank);
 
-const tableBody = document.createElement('tbody'); //Table body
-table.appendChild(tableBody);
+// const tableBody = document.createElement('tbody'); //Table body
+// table.appendChild(tableBody);
 
 const tableFoot = document.createElement('tfoot'); //Table foot
 table.appendChild(tableFoot);
@@ -74,6 +74,7 @@ function tableHeader() {
 Store.prototype.render = function () {
     let tableHeads = document.createElement('th');
     let these = this.total;
+
     //rows
     let row = document.createElement('tr');
     tableBody.append(row);
@@ -113,14 +114,50 @@ function tableFooter() {
     tfGT.innerText = grandTotal;
     tableFoot.appendChild(tfGT);
 }
+/*Form function to append additional stores ///////////////////////////////////////*/
+//Step 1 - target the element
+let muhForm = document.getElementById('meForm');
+
+//Step 3 - Add function
+function appendStore(event) {
+    event.preventDefault();
+    
+    tableBody.innerHTML = '';
+    tableFoot.innerHTML = '';
+
+    let location = event.target.storeName.value;
+    let custMin = event.target.customerMin.value;
+    let custMax = event.target.customerMax.value;
+    let average = event.target.averageCookies.value;
+
+    let newStore = new Store(location, custMin, custMax, average);
+
+    newStore.cookieCalc();
+    // tableHeader();
+    callStores();
+    const blank2 = document.createElement('th'); //Blank
+tableFoot.appendChild(blank2);
+    tableFooter();
+    
+}
+
+//Step 2 - Add event listener
+muhForm.addEventListener('submit', appendStore);
 
 /*Calls the functions for the New Object //////////////////////////////////////////*/
 function callStores() {
     for (let i = 0; i < locations.length; i++) {
-        locations[i].cookieCalc();
+        // locations[i].cookieCalc();
         locations[i].render();
     }
 }
+
+function calcStores() {
+    for (let i = 0; i < locations.length; i++) {
+        locations[i].cookieCalc();
+    }
+}
+calcStores();
 callStores();
 tableFooter();
 
