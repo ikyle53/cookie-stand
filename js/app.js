@@ -3,9 +3,8 @@
 /*Global variables and functions----------------------------------------------------------------*/
 
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-let dataArr = [];
 let locations = [];
-console.log(locations);
+let grandTotal = [];
 
 /*Constainer for my list items*/
 let body = document.getElementById('body');
@@ -47,11 +46,17 @@ section.appendChild(table);
 const tableHead = document.createElement('thead'); //Table head
 table.appendChild(tableHead);
 
-const blank = document.createElement('td');
+const blank = document.createElement('td'); //Blank
 tableHead.appendChild(blank);
 
 const tableBody = document.createElement('tbody'); //Table body
 table.appendChild(tableBody);
+
+const tableFoot = document.createElement('tfoot'); //Table foot
+table.appendChild(tableFoot);
+
+const blank2 = document.createElement('th'); //Blank
+tableFoot.appendChild(blank2);
 
 /*THEAD function ///////////////////////////////////////////////////////////////////*/
 function tableHeader() {
@@ -68,7 +73,7 @@ function tableHeader() {
 /* Render function ////////////////////////////////////////////////////////////////*/
 Store.prototype.render = function () {
     let tableHeads = document.createElement('th');
-
+    let these = this.total;
     //rows
     let row = document.createElement('tr');
     tableBody.append(row);
@@ -76,7 +81,7 @@ Store.prototype.render = function () {
     tableData.innerHTML = this.location;
     row.appendChild(tableData);
 
-    //Loop for my cells
+    //Loop for my cells. Gives the cookies per hour
     for (let i = 0; i < hours.length; i++) {
         let tableData2 = document.createElement('td');
         tableData2.innerText = this.cookieArray[i];
@@ -88,6 +93,27 @@ Store.prototype.render = function () {
     row.appendChild(totals);
 }
 
+/*TFOOT function //////////////////////////////////////////////////////////////////*/
+function tableFooter() {
+    let grandTotal = 0;
+    //slooooow loop
+    for (let i = 0; i < hours.length; i++) {
+        let totals = 0;
+        //fast loop
+        for (let j = 0; j < locations.length; j++) {
+            totals += locations[j].cookieArray[i];
+        }
+        let tfTotals = document.createElement('th');
+        tfTotals.innerText = totals;
+        tableFoot.appendChild(tfTotals);
+
+        grandTotal += totals;
+    }
+    let tfGT = document.createElement('th');
+    tfGT.innerText = grandTotal;
+    tableFoot.appendChild(tfGT);
+}
+
 /*Calls the functions for the New Object //////////////////////////////////////////*/
 function callStores() {
     for (let i = 0; i < locations.length; i++) {
@@ -96,6 +122,7 @@ function callStores() {
     }
 }
 callStores();
+tableFooter();
 
 // /*SEATTLE location ///////////////////////////////////////////////////////////////////////////////////*/
 // let Store = {
