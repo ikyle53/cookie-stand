@@ -1,11 +1,19 @@
+body {
+    background-color: RGB(247, 9, 5, 0.1);
+}
+
 header {
     width: 100%;
-    height: 70px;
+    height: 90px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: yellow;
+    background-color: salmon;
+}
+
+h1 {
+    font-family: 'Hurricane', cursive;
 }
 
 header > img {
@@ -35,37 +43,89 @@ video {
     object-fit:cover;
 }
 
+#video {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    position: relative;
+}
+
+#video img {
+    position: absolute;
+    top: 10%;
+}
+
+#video h1 {
+    position: absolute;
+    top: 50%;
+    font-size: 8em;
+    color: salmon;
+}
+
 main > section {
     display: flex;
     flex-direction: row;
-    justify-content:space-around;
+    justify-content:center;
     align-items:inherit;
-    gap: 20px;
+    /* border: 1px solid black; */
     padding: 10px;
-    margin: 10px;
-    border: 1px solid black;
+
 }
 
 section > article {
-    width: 20%;
-    border: 1px solid black;
-    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    text-align: left;
+    margin: 10px;
+    padding: 10px;
+}
+
+section > article:nth-child(2) {
+    border-left: 2px solid green;
+}
+
+section > article:nth-child(3) {
+    border-left: 2px solid green;
+}
+
+section > article:nth-child(4) {
+    border-left: 2px solid green;
+}
+
+section > article:nth-child(5) {
+    border-left: 2px solid green;
 }
 
 article > img { 
     height: 200px;
-    /* float: left; */
 }
 
 h2 {
     font-size: 1.5em;
     padding: 10px;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Bad Script', cursive;
+    font-size: 1.2em;
+    display: inline-block;
+    margin: 10px;
+    color: RGB(79, 68, 0);
+}
+
+p {
+    display: inline-block;
+    font-family: 'Varela', sans-serif;
 }
 
 footer {
     width: 100%;
     height: 100px;
-    background-color: black;
+    background-color: salmon;
 }
 
 /*Sales styles ////////////////////////////////////*/

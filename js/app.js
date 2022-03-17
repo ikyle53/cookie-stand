@@ -136,7 +136,7 @@ function appendStore(event) {
     // tableHeader();
     callStores();
     const blank2 = document.createElement('th'); //Blank
-tableFoot.appendChild(blank2);
+    tableFoot.appendChild(blank2);
     tableFooter();
     
 }
