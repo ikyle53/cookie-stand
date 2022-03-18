@@ -144,6 +144,9 @@ function appendStore(event) {
 //Step 2 - Add event listener
 muhForm.addEventListener('submit', appendStore);
 
+/*On-Scroll event /////////////////////////////////////////////////////////////////*/
+
+
 /*Calls the functions for the New Object //////////////////////////////////////////*/
 function callStores() {
     for (let i = 0; i < locations.length; i++) {

@@ -12,7 +12,7 @@ header {
     background-color: salmon;
 }
 
-h1 {
+h1, h2{
     font-family: 'Hurricane', cursive;
 }
 
@@ -26,13 +26,22 @@ li, a {
     list-style: none;
     text-decoration: none;
     padding: 10px 20px 10px 20px;
-    display: inline;;
+    display: inline;
+    transition: 300ms;
+    border-radius: 5px;
 }
 
 a {
-    background-color: blueviolet;
-    color: white;
+    background-color: beige;
+    color: blueviolet;
 }
+
+a:hover {
+    padding: 20px 30px 20px 30px;
+    font-size: 1.5em;
+}
+
+
 
 video {
     display: absolute;
@@ -49,11 +58,13 @@ video {
     padding: 0;
     height: auto;
     position: relative;
+    transition: 300ms;
 }
 
 #video img {
     position: absolute;
     top: 10%;
+    
 }
 
 #video h1 {
@@ -81,6 +92,13 @@ section > article {
     text-align: left;
     margin: 10px;
     padding: 10px;
+    background: RGB(3, 16, 133, 0.1);
+    transition: 300ms;
+    border-radius: 5px;
+}
+
+section > article:hover {
+    background-color: RGB(3, 16, 133, 0.2);
 }
 
 section > article:nth-child(2) {
@@ -114,12 +132,13 @@ h3 {
     font-size: 1.2em;
     display: inline-block;
     margin: 10px;
-    color: RGB(79, 68, 0);
+    color: green;
 }
 
 p {
     display: inline-block;
     font-family: 'Varela', sans-serif;
+    color: red;
 }
 
 footer {
@@ -133,6 +152,7 @@ table, thead, th, tr, td{
     border: 2px solid black;
     padding: 2px 5px 2px 5px;
     text-align: center;
+    margin: auto;
 }
 
 td:first-child {
@@ -149,4 +169,20 @@ th:last-child {
 
 td:last-child {
     background-color: RGB(40, 63, 235, 0.5);
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin: auto;
+}
+
+#link { 
+    text-align: center;
 }
