@@ -142,9 +142,16 @@ p {
 }
 
 footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100px;
     background-color: salmon;
+}
+
+footer > p {
+    color: white;
 }
 
 /*Sales styles ////////////////////////////////////*/
@@ -186,3 +193,8 @@ h1 {
 #link { 
     text-align: center;
 }
+
+#locations {
+    font-size: 3em;
+}
+
